@@ -1,0 +1,17 @@
+# Original SMAC (Samvelyan et al., 2019).
+# Static team composition — group structure is fixed per map.
+
+env:
+  name: smac
+  scenario: MMM2                  # established mixed-unit benchmark
+  difficulty: "5"
+  reward_sparse: false
+  reward_scale: true
+  reward_scale_rate: 20.0
+  state_last_action: true
+  obs_all_health: true
+
+# For TyPPO on SMAC MMM2: group by unit type (1 Medivac + 2 Marauder + 7 Marine
+# would give 3 groups by type). When using the runner with TyPPO, build the
+# GroupAssignment via assign_groups_by_type from env.unit_types_for_each_agent.
+groups: by_type

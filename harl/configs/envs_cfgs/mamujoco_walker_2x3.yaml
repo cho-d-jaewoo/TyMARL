@@ -1,0 +1,12 @@
+# Multi-Agent MuJoCo — Walker2d-v2 with 2 agents x 3 joints (left vs right leg).
+# Heterogeneous decomposition: each agent controls one leg.
+# For TyM*, the natural type structure is "left leg" vs "right leg" (mirror).
+
+env:
+  name: mamujoco
+  scenario: Walker2d-v2
+  agent_conf: "2x3"
+  agent_obsk: 1
+  episode_length: 1000
+
+groups: per_agent

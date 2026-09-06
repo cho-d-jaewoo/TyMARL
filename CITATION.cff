@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "HetGRL: A Unified Framework for Cooperative Multi-Agent Reinforcement Learning"
+abstract: >
+  HetGRL is a unified framework for cooperative multi-agent reinforcement
+  learning that places heterogeneity at the level of groups rather than
+  individual agents. The repository contains implementations of HetGPO and
+  HetGSAC together with the mixed_smacv2 benchmark suite.
+authors:
+  - name: "Anonymous"
+license: MIT
+date-released: 2026-04-28
+preferred-citation:
+  type: conference-paper
+  title: "HetGRL: A Unified Framework for Cooperative Multi-Agent Reinforcement Learning"
+  authors:
+    - name: "Anonymous"
+  year: 2026
+  collection-title: "Advances in Neural Information Processing Systems"

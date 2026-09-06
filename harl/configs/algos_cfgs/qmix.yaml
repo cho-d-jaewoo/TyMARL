@@ -1,0 +1,24 @@
+algorithm:
+  name: qmix
+  type: off_policy_value_decomposition
+optim:
+  lr: 5.0e-4
+qmix:
+  gamma: 0.99
+  tau: 0.005
+  batch_size: 32
+  buffer_size: 100000
+  warmup_steps: 5000
+  eps_start: 1.0
+  eps_end: 0.05
+  eps_anneal_steps: 50000
+  update_per_train: 1
+train:
+  num_env_steps: 10000000
+  episode_length: 200
+  n_rollout_threads: 1
+log:
+  log_interval: 1000
+  save_interval: 100000
+  use_tensorboard: false
+  use_wandb: false

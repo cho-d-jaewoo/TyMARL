@@ -1,0 +1,35 @@
+# HATD3 — Heterogeneous-Agent TD3.
+# Inherited from HARL upstream.
+
+algorithm:
+  name: hatd3
+  type: off_policy_deterministic
+
+optim:
+  actor_lr: 5.0e-4
+  critic_lr: 5.0e-4
+
+sac:
+  gamma: 0.99
+  tau: 0.005
+  target_entropy: 0.0
+  alpha: 0.0
+  auto_alpha: false
+  buffer_size: 1000000
+  batch_size: 1000
+  warmup_steps: 10000
+
+noise:
+  action_noise: 0.1
+  target_noise: 0.2
+  noise_clip: 0.5
+  policy_delay: 2
+
+train:
+  num_env_steps: 5000000
+  episode_length: 200
+  n_rollout_threads: 1
+
+log:
+  log_interval: 1000
+  save_interval: 100000

@@ -1,0 +1,31 @@
+# MADDPG -- not implemented standalone in this repo; install HARL upstream
+# (https://github.com/PKU-MARL/HARL) to run MADDPG baselines. The config below
+# is retained only so that existing CLI examples don't error on a missing file.
+
+algorithm:
+  name: maddpg
+  type: off_policy_deterministic
+
+optim:
+  actor_lr: 5.0e-4
+  critic_lr: 5.0e-4
+  alpha_lr: 5.0e-4
+
+sac:
+  gamma: 0.99
+  tau: 0.005
+  target_entropy: 0.0
+  alpha: 1.0e-6                    # forced near-deterministic
+  auto_alpha: false
+  buffer_size: 1000000
+  batch_size: 1000
+  warmup_steps: 10000
+
+train:
+  num_env_steps: 5000000
+  episode_length: 200
+  n_rollout_threads: 1
+
+log:
+  log_interval: 1000
+  save_interval: 100000

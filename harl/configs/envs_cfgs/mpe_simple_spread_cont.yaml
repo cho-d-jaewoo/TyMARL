@@ -1,0 +1,11 @@
+# MPE simple_spread, CONTINUOUS action mode -- for SAC-family algorithms
+# (TySAC, HASAC). Following HARL paper's MPE evaluation protocol.
+
+env:
+  name: mpe
+  scenario: simple_spread_v3
+  num_agents: 3
+  episode_length: 25
+  continuous_actions: true
+
+groups: per_agent

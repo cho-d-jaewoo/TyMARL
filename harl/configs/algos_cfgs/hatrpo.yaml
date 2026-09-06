@@ -1,0 +1,61 @@
+algorithm:
+  name: hatrpo
+  type: on_policy_stochastic
+group_partition:
+  mode: auto
+  groups: null
+
+optim:
+  actor_lr: 0.0005          # unused for actor (TRPO line search), kept for API uniformity
+  critic_lr: 0.0005
+  optim_eps: 1.0e-05
+  weight_decay: 0
+
+# TRPO-specific hyperparameters.
+trpo:
+  # Trust-region size (max KL between old and new policy per step).
+  # Increased from the textbook 0.01 to 0.02 because SMACv2 has high
+  # episode-to-episode variance from the stochastic team composition;
+  # tighter trust regions made the line search reject every step.
+  max_kl: 0.02
+  # Conjugate-gradient solver settings.
+  cg_iters: 10
+  cg_damping: 0.1
+  # Line-search backtracking.
+  line_search_steps: 10
+  line_search_decay: 0.5
+  # Entropy bonus. Standard TRPO uses 0.0, but on SMACv2 a small bonus
+  # is essential to prevent the policy from collapsing to deterministic
+  # in the first few hundred iterations -- the cyanrain7/TRPO-in-MARL
+  # SMAC config also uses a non-zero entropy coef for the same reason.
+  entropy_coef: 0.01
+  # Critic update (PPO-style clipped value loss).
+  clip_param: 0.2
+  critic_epoch: 5
+  num_mini_batch: 1
+  value_loss_coef: 1.0
+  max_grad_norm: 10.0
+  use_clipped_value_loss: true
+  use_huber_loss: true
+  huber_delta: 10.0
+  use_value_norm: true
+
+# Runner reads gamma / gae_lambda from this block; same defaults as HAPPO.
+ppo:
+  gamma: 0.99
+  gae_lambda: 0.95
+  use_gae: true
+
+sequential_update:
+  random_group_permutation: true
+
+train:
+  num_env_steps: 10000000
+  episode_length: 200
+  n_rollout_threads: 1
+
+log:
+  log_interval: 5
+  save_interval: 100
+  use_tensorboard: false
+  use_wandb: false

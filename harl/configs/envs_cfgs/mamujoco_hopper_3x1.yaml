@@ -1,0 +1,13 @@
+# Multi-Agent MuJoCo — Hopper-v2 with 3 agents x 1 joint (thigh, leg, foot).
+# Lightweight 3-agent heterogeneous decomposition; cheap to train under
+# n_rollout_threads=1, useful as a third datapoint alongside Walker-2x3 and
+# HalfCheetah-2x3 from the paper's recommended coverage.
+
+env:
+  name: mamujoco
+  scenario: Hopper-v2
+  agent_conf: "3x1"
+  agent_obsk: 1
+  episode_length: 1000
+
+groups: per_agent

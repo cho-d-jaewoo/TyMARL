@@ -1,0 +1,29 @@
+algorithm:
+  name: hasac
+  type: off_policy_stochastic
+optim:
+  actor_lr: 5.0e-4
+  critic_lr: 5.0e-4
+  alpha_lr: 3.0e-4
+sac:
+  gamma: 0.99
+  tau: 0.005
+  target_entropy: -1.0
+  alpha: 0.2
+  alpha_min: 0.05
+  auto_alpha: true
+  buffer_size: 1000000
+  batch_size: 1000
+  warmup_steps: 10000
+  update_per_train: 1
+sequential_update:
+  random_group_permutation: true
+train:
+  num_env_steps: 5000000
+  episode_length: 200
+  n_rollout_threads: 1
+log:
+  log_interval: 1000
+  save_interval: 100000
+  use_tensorboard: false
+  use_wandb: false

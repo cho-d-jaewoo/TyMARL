@@ -1,0 +1,26 @@
+HetGRL
+======
+
+This codebase is built on top of HARL (Heterogeneous-Agent Reinforcement
+Learning), released by the PKU-MARL group under the MIT License:
+
+    https://github.com/PKU-MARL/HARL
+
+We forked HARL and added:
+
+    - harl/algorithms/actors/hetgpo.py        (ours)
+    - harl/algorithms/actors/hetgsac.py       (ours)
+    - harl/algorithms/critics/group_critic.py (ours)
+    - harl/runners/on_policy_group_runner.py  (ours)
+    - harl/runners/off_policy_group_runner.py (ours)
+    - harl/utils/group.py                     (ours)
+    - harl/envs/mixed_smacv2/                 (ours)
+    - harl/configs/algos_cfgs/{hetgpo,hetgsac}.yaml
+    - harl/configs/envs_cfgs/mixed_smacv2.yaml
+    - scripts/, docs/, tests/, examples/
+
+To minimise the diff with the upstream, the original HARL files (HAPPO,
+HATRPO, HAA2C, HASAC, HADDPG, HATD3 implementations and the per-agent
+runners) are not redistributed in this repository: scripts/install_harl.sh
+clones the upstream repository into third_party/HARL/ and our actor wrappers
+re-export the upstream classes from there.

@@ -1,0 +1,11 @@
+# MPE simple_speaker_listener, CONTINUOUS -- for SAC-family algorithms.
+# K=2 heterogeneous, primary scenario for TyM* group-level learning in MPE.
+
+env:
+  name: mpe
+  scenario: simple_speaker_listener_v4
+  num_agents: 2
+  episode_length: 25
+  continuous_actions: true
+
+groups: per_agent

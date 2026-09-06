@@ -1,0 +1,12 @@
+# Multi-Agent MuJoCo — HalfCheetah-v2 with 2 agents x 3 joints (front vs back).
+# Listed in docs/algorithm_compatibility.md as a primary MaMuJoCo benchmark
+# (Section 7.3). Two distinct body parts → 2 canonical types for TyM*.
+
+env:
+  name: mamujoco
+  scenario: HalfCheetah-v2
+  agent_conf: "2x3"
+  agent_obsk: 1
+  episode_length: 1000
+
+groups: per_agent

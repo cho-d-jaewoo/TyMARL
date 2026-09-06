@@ -1,0 +1,31 @@
+# HAA2C — Heterogeneous-Agent A2C (Zhong et al., JMLR 2024).
+# Inherited from HARL upstream.
+
+algorithm:
+  name: haa2c
+  type: on_policy_stochastic
+
+optim:
+  actor_lr: 5.0e-4
+  critic_lr: 5.0e-4
+  optim_eps: 1.0e-5
+
+ppo:
+  ppo_epoch: 1
+  num_mini_batch: 1
+  entropy_coef: 0.01
+  value_loss_coef: 1.0
+  max_grad_norm: 10.0
+  use_huber_loss: true
+  huber_delta: 10.0
+  gamma: 0.99
+  gae_lambda: 0.95
+
+train:
+  num_env_steps: 10000000
+  episode_length: 200
+  n_rollout_threads: 1
+
+log:
+  log_interval: 5
+  save_interval: 100

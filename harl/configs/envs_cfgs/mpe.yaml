@@ -1,0 +1,12 @@
+# MPE (Multi-agent Particle Environment, PettingZoo).
+# Mostly homogeneous; useful as a baseline where within-type sharing
+# is expected to dominate.
+
+env:
+  name: mpe
+  scenario: simple_spread_v3
+  num_agents: 3
+  episode_length: 25
+  continuous_actions: true
+
+groups: per_agent

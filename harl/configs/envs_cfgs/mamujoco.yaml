@@ -1,0 +1,12 @@
+# Multi-Agent MuJoCo — continuous-action body-part decompositions.
+
+env:
+  name: mamujoco
+  scenario: Walker2d-v2          # body parts as agents
+  agent_conf: "2x3"              # 2 agents × 3 joints each (Walker)
+  agent_obsk: 1
+  episode_length: 1000
+
+# For TyM*, a natural group choice on Walker-2x3 is one agent per leg
+# (each "leg" is its own group, equivalent to HASAC topology). Override here.
+groups: per_agent

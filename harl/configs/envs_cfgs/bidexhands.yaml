@@ -1,0 +1,13 @@
+# Bi-DexterousHands — Isaac Gym physics-based bimanual manipulation.
+# Two-hand setting maps cleanly to two groups.
+
+env:
+  name: bidexhands
+  scenario: ShadowHandOver
+  num_envs: 1024                  # Isaac Gym likes batched envs
+  episode_length: 75
+
+# Natural grouping: each hand is one group.
+groups:
+  - [0]
+  - [1]

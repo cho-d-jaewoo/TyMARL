@@ -1,0 +1,11 @@
+# MPE simple_spread, DISCRETE action mode -- for PPO-family algorithms
+# (TyPPO, HAPPO, MAPPO). Following HARL paper's MPE evaluation protocol.
+
+env:
+  name: mpe
+  scenario: simple_spread_v3
+  num_agents: 3
+  episode_length: 25
+  continuous_actions: false
+
+groups: per_agent

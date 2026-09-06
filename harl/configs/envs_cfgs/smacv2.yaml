@@ -1,0 +1,31 @@
+# SMACv2 (Ellis et al., 2023) -- per-episode randomised team composition.
+#
+# These kwargs are forwarded to harl.envs.smacv2.SMACv2Env(...) in
+# train.py:build_env. Scenario (e.g. protoss_5_vs_5) and seed are taken
+# from the CLI; everything below is a constructor kwarg.
+
+env:
+  name: smacv2
+  # ----- Difficulty (StarCraft II built-in heuristic level) -----
+  # SC2 levels: 1 very_easy, 2 easy, 3 medium, 4 medium_hard,
+  #             5 hard, 6 harder, 7 very_hard (SMAC default), 8-10 cheat.
+  # Stay on "5" while debugging; raise to "7" for paper-quality runs.
+  difficulty: "5"
+
+  # ----- Episode horizon -----
+  # SMACv2 caps an episode at episode_limit env steps (default 200 for
+  # 5v5). Keep this matched to train.episode_length so the rollout
+  # buffer holds an integer number of episodes.
+  episode_limit: 200
+
+  # ----- Reward shaping (matches SMAC v1 defaults so MAPPO/HAPPO
+  # baselines reproduce the published numbers) -----
+  reward_sparse: false
+  reward_scale: true
+  reward_scale_rate: 20.0
+  state_last_action: true
+  obs_all_health: true
+
+# Type-aware grouping is built from the per-episode unit composition
+# inside SMACv2Env.reset(); the runner picks it up via env.groups.
+groups: by_type

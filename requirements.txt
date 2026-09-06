@@ -1,0 +1,34 @@
+# Core
+torch>=2.0.0
+numpy>=1.24
+PyYAML>=6.0
+tensorboard>=2.13
+gymnasium>=0.29
+
+# Environments — install only what you need
+# SMAC / SMACv2 require StarCraft II (separate download).
+pysc2>=4.0
+smac @ git+https://github.com/oxwhirl/smac.git
+smacv2 @ git+https://github.com/oxwhirl/smacv2.git
+
+# MAMuJoCo
+mujoco>=2.3
+gym>=0.26
+
+# MPE (PettingZoo)
+pettingzoo>=1.24
+supersuit>=3.9
+
+# Bi-DexterousHands (optional; requires Isaac Gym, see docs/install_bidexhands.md).
+
+# Visualisation
+matplotlib>=3.7
+pandas>=2.0
+seaborn>=0.12
+
+# Logging (optional)
+wandb>=0.16
+absl-py>=2.0
+
+# Test
+pytest>=8.0
